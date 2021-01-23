@@ -10,8 +10,11 @@ RUN yum -y install krb5-workstation
 
 # Install impala shell
 RUN yum -y install gcc gcc-c++ 
-RUN yum -y install cyrus-sasl cyrus-sasl-devel
-RUN pip3 install impala-shell
+RUN yum -y install cyrus-sasl cyrus-sasl-md5 cyrus-sasl-plain cyrus-sasl-gssapi cyrus-sasl-devel -y
+RUN pip3 install impala-shell impyla
+
+# Install Java
+RUN yum install -y java-11-openjdk-devel
 
 # copy default ansible configuration files
 COPY .ansible.cfg /root/.ansible.cfg

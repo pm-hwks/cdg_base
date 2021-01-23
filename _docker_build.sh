@@ -1,0 +1,1 @@
+docker build -t pmcldr/cdg_base:0.0.1 .
