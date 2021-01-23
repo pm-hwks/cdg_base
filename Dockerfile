@@ -8,6 +8,11 @@ RUN pip3 install ansible==2.10.5
 RUN pip3 install pywinrm
 RUN yum -y install krb5-workstation
 
+# Install impala shell
+RUN yum -y install gcc gcc-c++ 
+RUN yum -y install cyrus-sasl cyrus-sasl-devel
+RUN pip3 install impala-shell
+
 # copy default ansible configuration files
 COPY .ansible.cfg /root/.ansible.cfg
 COPY hosts /etc/ansible/hosts
