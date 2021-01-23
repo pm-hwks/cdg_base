@@ -17,9 +17,9 @@ jobs:
           VERSION: 0.0.1
     
       - name: Build :latest
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE }}:${{ VERSION }} .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE }}:$VERSION .
       
       - name: Push to docker hub :latest
         uses: actions-hub/docker@master
         with:
-          args: push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE }}:${{ VERSION }}
+          args: push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE }}:$VERSION
